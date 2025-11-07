@@ -3,6 +3,6 @@ services:
   sql-chal:
     build: .
     ports:
-      - "5000:5000"
+      - "5001:5001"
     environment:
       - VULNERABLE=1

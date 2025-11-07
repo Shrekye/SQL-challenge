@@ -14,7 +14,7 @@ Le script interroge /mode pour savoir si l'application est en mode 'vulnerable' 
 import requests
 from urllib.parse import urljoin
 
-BASE = "http://127.0.0.1:5000"  # changer si nécessaire
+BASE = "http://127.0.0.1:5001"  # changer si nécessaire
 
 def get_mode():
     r = requests.get(urljoin(BASE, "/mode"), timeout=5)
@@ -34,7 +34,7 @@ def attempt_injection_get_flag():
 def main():
     mode = get_mode()
     if not mode:
-        print("Erreur : impossible de joindre /mode. Le serveur est-il lancé sur http://127.0.0.1:5000 ?")
+        print("Erreur : impossible de joindre /mode. Le serveur est-il lancé sur http://127.0.0.1:5001 ?")
         return
 
     print(f"Mode détecté sur le serveur : {mode}")

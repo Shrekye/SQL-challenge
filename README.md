@@ -30,13 +30,13 @@ docker build -t sql-chal .
 Lancer en mode vulnérable (montrer la faille)
 bash
 Copier le code
-docker run --rm -p 5000:5000 -e VULNERABLE=1 --name sql-chal-vuln sql-chal
-Application accessible : http://0.0.0.0:5000/
+docker run --rm -p 5001:5001 -e VULNERABLE=1 --name sql-chal-vuln sql-chal
+Application accessible : http://0.0.0.0:5001/
 
 Lancer en mode corrigé (sécurisé)
 bash
 Copier le code
-docker run --rm -p 5000:5000 -e VULNERABLE=0 --name sql-chal-safe sql-chal
+docker run --rm -p 5001:5001 -e VULNERABLE=0 --name sql-chal-safe sql-chal
 Remarque : la variable d'environnement VULNERABLE contrôle le comportement. Valeurs acceptées : 1, true, True → vulnérable. Autres valeurs → version sécurisée.
 
 Commandes Docker Compose (optionnel)
@@ -86,12 +86,12 @@ Lancement en mode vulnérable :
 
 bash
 Copier le code
-docker run --rm -p 5000:5000 -e VULNERABLE=1 sql-chal
+docker run --rm -p 5001:5001 -e VULNERABLE=1 sql-chal
 Exemple d'attaque (voir SOLUTION.md pour détails) :
 
 bash
 Copier le code
-curl -v -X POST -F "username=' OR '1'='1' -- " -F "password=" http://0.0.0.0:5000/login
+curl -v -X POST -F "username=' OR '1'='1' -- " -F "password=" http://0.0.0.0:5001/login
 Remarques pédagogiques
 Les sources sont commentées pour indiquer où se trouve la faille et comment la corriger.
 

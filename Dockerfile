@@ -13,7 +13,7 @@ COPY . .
 RUN python init_db.py
 
 # Port exposé
-EXPOSE 5000
+EXPOSE 5001
 
 # Variable d'environnement par défaut : vulnérable
 ENV VULNERABLE=1
@@ -21,4 +21,4 @@ ENV FLASK_ENV=production
 ENV FLASK_APP=app.py
 
 # Commande de démarrage
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5001"]
